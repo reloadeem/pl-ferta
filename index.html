@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Jasnoszare tło */
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff; /* Białe tło formularza */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <title>LurgSurv.pl</title>
+</head>
+<body>
+
+    <div id="container">
+      <img src="https://i.imgur.com/J1qGx3x.png"> <br>
+      <p>
+        Dołącz do anonimowej ankiety o grach komputerowych.
+      </p>
+        <form action="continue.html" method="POST"> 
+            <label for="rubryka1">Imię:</label>
+            <input type="text" id="rubryka1" name="rubryka1" required>
+
+            <label for="rubryka2">Nazwisko:</label>
+            <input type="text" id="rubryka2" name="rubryka2" required>
+
+            <label for="rubryka3">E-mail:</label>
+            <input type="text" id="rubryka3" name="rubryka3" required>
+
+            <label for="rubryka4">Data urodzenia:</label>
+            <input type="text" id="rubryka4" name="rubryka4" required>
+
+            <label for="rubryka5">Kod:</label>
+            <input type="text" id="rubryka5" name="rubryka5" required>
+
+            <button type="submit">Dalej</button>
+        </form>
+    </div>
+
+</body>
+</html>
